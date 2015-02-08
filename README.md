@@ -28,7 +28,7 @@ Why `nui-form-for`?
    * It is 100% AngularJS compliant
    * You can have cleaner html as you wish
    * It allows form validation by an object
-   * You can also do async validation injection by $http
+   * You can user server-side validation
 
 Install
 --------
