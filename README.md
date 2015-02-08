@@ -8,7 +8,7 @@ Graceful AngularJS validation rule Injector from an object
 
 How It Works
 ------------
-This module adds Angular validation rules from an object ONLY if not defined.  
+This module gracefully injects Angular validation rules from a JSON object ONLY if not defined.
 
 For example, there is validation rule given as `{minlength:1}`,  
 
