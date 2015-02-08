@@ -10,17 +10,13 @@ How It Works
 ------------
 This module adds Angular validation rules from an object ONLY if not defined.  
 
-For example, there is validation rule given as `{minlength:1}`,   
-This input 
-  * `<input name="foo" />`    
-will become 
-  * `<input name="foo" ng-minlength="1"  ng-model="user.foo"  />`    
+For example, there is validation rule given as `{minlength:1}`,  
 
-However, rule given as `{minlength:1}`,   
-This input 
-  * `<input name="foo" ng-minlength="20" />`   
-will become 
-  * `<input name="foo" ng-minlength="20"  ng-model="user.foo"  />`
+This input  | Will become
+------------- | -------------
+`<input name="foo" />` | `<input name="foo" ng-minlength="1"  ng-model="user.foo"  />`    
+`<input name="foo" ng-minlength="20" />` | `<input name="foo" ng-minlength="20"  ng-model="user.foo"  />`
+
 
 Why `nui-form-for`?
 --------------------
