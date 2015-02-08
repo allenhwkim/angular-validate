@@ -33,8 +33,12 @@ Why `nui-form-for`?
 Install
 --------
 
-  1. $ bower install nui-form-for
-  2. add script `<script src="nui-form-for.js"></script>`
+  1. bower install  
+     `$ bower install nui-form-for`
+  2. add script to your page 
+     `<script src="nui-form-for.js"></script>`
+  3. add dependency to your module  
+     `var myapp = angular.module('myapp', ['nui-form-for']);`
 
 Usage Example
 --------------
