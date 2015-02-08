@@ -55,15 +55,13 @@ Requirements For This Module
      * ngmessages, ngmessage
      * form, input, ng-minlenght, ng-maxlenth, ... etc
 
-  1. `<form ng-form-for="<<MODEL-OBJECT>>" ng-rules="<<ALL-RULES-FOR-FORM>>">`
-     Take model object with validation rules and inject those rules to form elements
+  1. Must accept validation rule as a form attriute matching to an object  
+    i.e., `<form ng-form-for="<<MODEL-OBJECT>>" ng-rules="<<ALL-RULES-FOR-FORM>>">`  
 
-  2. `<input .... ng-rule="<<VALIDATIN-RULE-NAME>>">`
+  2. Must accept validation rule as a form field attribute  
+     i.e.,  `<input .... ng-rule="<<VALIDATIN-RULE-NAME>>">`
 
-  3. `<input .... ng-rule name="<<VALIDATIN-RULE-NAME>>">`
-     Apply validation rule. works as ng-validate="ruleName"
-
-  4. must NOT overwrite AngularJS tag validation rules, and HTML5 validation rules.   
+  3. Must NOT overwrite AngularJS tag validation rules, and HTML5 validation rules.   
      For example, assuming there is rule {min:10, max:20}, and html has input tag attribute min="1"
      then applying rule must be {min:1, and max:20} because min=1 is given from html already.
 
