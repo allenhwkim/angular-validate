@@ -3,6 +3,8 @@ nui-form-for
 
 AngularJS Validation Rule Builder from an Object
  [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/testapp/simple.html)
+ 
+ ![Imgur](http://i.imgur.com/d2vU9Sw.png)
 
 How It Works
 ------------
