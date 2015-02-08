@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="lib/angular.js"></script>
+  <script src="app/scripts/app.js"></script>
+  <script src="app/scripts/nui-rule.js"></script>
+  <script>
+    var app = angular.module('myapp', ['nui-form-for']);
+    app.constant('validationRule', {
+      email: { type: "email" },
+      'date': { pattern: "[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}"},
+      url: { type: "url" },
+      'credit-card': { pattern: "([0-9]{4}[ -]?){4}" }
+    });
+    app.controller('MyCtrl', function($scope, validationRule, dateFilter) {
+      $scope.validationRules = validationRule;
+    });
+  </script>
+  <style>
+    body {font-family: arial,sans-serif; font-size: 16px}
+    form[name='myForm'] b {display:inline-block; width: 7em}
+    form .ng-dirty.ng-invalid { background-color: red; }
+    form .ng-dirty.ng-valid { background-color:  lightgreen }
+  </style>
+</head>
+<body ng-app="myapp" ng-controller="MyCtrl">
+
+  <h1>Element-Level Validation</h1>
+  You DON'T HAVE TO provide a validation object to a form-level for a single form field.
+  Just simply add `nui-rule` attribute to your input tag.
+  However, in this case, you need to have; 
+  <ol>
+   <li>applicaition-wide validation rule.
+   <li>`nui-rule` and `ng-model`
+  </ol>
+  
+  <div style="display:inline-block; vertical-align: top;">
+    <form name="myForm">
+      <b>E-mail: </b> <input name="email" nui-rule="email" ng-model="foo" />
+      <br/>
+      <b>Date of Birth:</b> <input name="dob" nui-rule="date" ng-model="dob" />
+      <br />
+      <b>Homepage:</b> <input name="homepage" nui-rule="url" ng-model="fuz" />
+      <br />
+      <b>Credit Card:</b> <input name="cc" nui-rule="credit-card" ng-model="cc" />
+      <br />
+      <button ng-disabled="!(myForm.$dirty)">RESET</button>
+      <button ng-disabled="!(myForm.$valid && myForm.$dirty)">SAVE</button>
+    </form>
+  </div>
+
+  <div style="display: inline-block;vertical-align:top; overflow:auto">
+    <pre style="margin:0; font-size: 0.95em; background:#666; color: #eee">
+  &lt;form name="myForm">
+    E-mail:      &lt;input name="email" nui-rule="email" ng-model="foo" />
+    Birth Date:  &lt;input name="dob" nui-rule="date" ng-model="bar" />
+    Homepage:    &lt;input name="homepage" nui-rule="url" ng-model="fuz" />
+    Credit Card: &lt;input name="cc" nui-rule="credit-card" ng-model="cc" />
+    &lt;button ng-disabled="!(myForm.$dirty)">
+      RESET
+    &lt;/button>
+    &lt;button ng-disabled="!(myForm.$valid && myForm.$dirty)">
+      SAVE
+    &lt;/button>
+  &lt;/form></pre>
+  </div>
+  <hr/>
+
+  <button ng-click="debug = !debug">Toggle Debug</button>
+  <div id="debug" ng-show="debug">
+    <tt>myForm.email.$valid = {{myForm.email.$valid}}</tt><br>
+    <tt>myForm.email.$error = {{myForm.email.$error}}</tt><br>
+    <hr/>    
+    <tt>myForm.dob.$valid = {{myForm.nickName.$valid}}</tt><br>
+    <tt>myForm.dob.$error = {{myForm.nickName.$error}}</tt><br>
+    <hr/>
+    <tt>myForm.homepage.$valid = {{myForm.email.$valid}}</tt><br>
+    <tt>myForm.homepage.$error = {{myForm.email.$error}}</tt><br>
+    <hr/>
+    <tt>myForm.cc.$valid = {{myForm.gender.$valid}}</tt><br>
+    <tt>myForm.cc.$error = {{myForm.gender.$error}}</tt><br>
+    <hr/>
+    <hr/>
+    <tt>myForm.$valid = {{myForm.$valid}}</tt><br>
+    <tt>myForm.$error = {{!!myForm.$error}}</tt><br>
+  </div>
+     
+</body>
+</html>

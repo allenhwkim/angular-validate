@@ -1,0 +1,38 @@
+{
+  "name": {
+    "minlength": 2,
+    "maxlength": 10,
+    "message": "Invalid user name"
+  },
+  "nickName": {
+    "required": false,
+    "minlength": {
+      "value": 3,
+      "message": "nick name must have 3 letters"
+    },
+    "maxlength": {
+      "value": 10,
+      "message": "nick name must have  less than 10 letters"
+    },
+    "message": "nick name must be a valid one"
+  },
+  "email": {
+    "type": "email"
+  },
+  "dob": {
+    "type": "date"
+  },
+  "time": {
+    "type": "time"
+  },
+  "homepage": {
+    "type": "url"
+  },
+  "gender": {
+    "pattern": "male|female"
+  },
+  "creditCard": {
+    "pattern": "([0-9]{4}[ -]?){4}"
+  },
+  "agree": {}
+}

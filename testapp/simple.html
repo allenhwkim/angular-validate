@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="lib/angular.js"></script>
+  <script src="app/scripts/app.js"></script>
+  <script src="app/scripts/nui-form-for.js"></script>
+  <script>
+    var app = angular.module('myapp', ['nui-form-for']);
+  </script>
+  <style>
+    body {font-family: arial,sans-serif; font-size: 16px}
+    form[name='myForm'] b {display:inline-block; width: 7em}
+    form .ng-dirty.ng-invalid { background-color: red; }
+    form .ng-dirty.ng-valid { background-color:  lightgreen }
+  </style>
+</head>
+<body ng-app="myapp">
+
+  <h1>Simple HTML, Full AngularJS Validation</h1>
+  <div style="display:inline-block; vertical-align: top;">
+    <form name="myForm" nui-form-for="user" validation-rule="user-rule.json">
+      <b>Name:</b> <input name="name"  />
+      size: 2-10
+      <br />
+      <b>Nick Name:</b> <input name="nickName" />
+      size: 3 to 10, optional
+      <br />
+      <b>E-mail: </b> <input name="email" />
+      type: email
+      <br />
+      <b>Date of Birth:</b> <input name="dob" />
+      type: date
+      <br />
+      <b>Homepage:</b> <input name="homepage" />
+      type: url
+      <br />
+      <b>Credit Card:</b> <input name="creditCard" />
+      pattern: ([0-9]{4}[ ]?){4}
+      <br />
+      <b>Gender:</b> 
+      <input type="radio" name="gender" value="male" />male
+      <input type="radio" name="gender" value="female" />female
+      <br />
+      <b> </b>
+      <input type="checkbox" name="agree" />
+      I agree whatever you say<br/>
+      <b> </b>
+      <button ng-disabled="!(myForm.$dirty)">RESET</button>
+      <button ng-disabled="!(myForm.$valid && myForm.$dirty)">SAVE</button>
+    </form>
+  </div>
+  <div style="display: inline-block;vertical-align:top; overflow:auto">
+    <pre style="margin:0; font-size: 0.95em; background:#666; color: #eee">
+ &lt;form name="myForm" nui-form-for="user"
+   validation-rule="user-rule.json">
+   Name:          &lt;input name="name"  />&lt;br/>
+   Nick Name:     &lt;input name="nickName" />&lt;br/>
+   E-mail:        &lt;input name="email" />&lt;br/>
+   Date of Birth: &lt;input name="dob" />&lt;br/>
+   Homepage:      &lt;input name="homepage" />&lt;br/>
+   Credit Card:   &lt;input name="creditCard" />&lt;br/>
+   Gender: 
+   &lt;input type="radio" name="gender" value="male" />male
+   &lt;input type="radio" name="gender" value="female" />female
+   &lt;br/>
+   &lt;input type="checkbox" name="agree" /> 
+   I agree whatever you say&lt;br/>
+   &lt;button ng-disabled="!(myForm.$dirty)">
+     RESET
+   &lt;/button>
+   &lt;button ng-disabled="!(myForm.$valid && myForm.$dirty)">
+     SAVE
+   &lt;/button>
+ &lt;/form></pre>
+  </div>
+  <hr/>
+
+  <button ng-click="debug = !debug">Toggle Debug</button>
+  <div id="debug" ng-show="debug">
+    <tt>myForm.name.$valid = {{myForm.name.$valid}}</tt><br>
+    <tt>myForm.name.$error = {{myForm.name.$error}}</tt><br>
+    <tt>myForm.name.message = {{myForm.name.message}}</tt><br>
+    <hr/>    
+    <tt>myForm.nickName.$valid = {{myForm.nickName.$valid}}</tt><br>
+    <tt>myForm.nickName.$error = {{myForm.nickName.$error}}</tt><br>
+    <tt>myForm.nickName.message = {{myForm.nickName.message}}</tt><br>
+    <hr/>
+    <tt>myForm.email.$valid = {{myForm.email.$valid}}</tt><br>
+    <tt>myForm.email.$error = {{myForm.email.$error}}</tt><br>
+    <hr/>
+    <tt>myForm.gender.$valid = {{myForm.gender.$valid}}</tt><br>
+    <tt>myForm.gender.$error = {{myForm.gender.$error}}</tt><br>
+    <hr/>
+    <tt>myForm.agree.$valid = {{myForm.agree.$valid}}</tt><br>
+    <tt>myForm.agree.$error = {{myForm.agree.$error}}</tt><br>
+    <hr/>
+    <tt>user = {{user}}</tt><br/>
+    <tt>myForm.$valid = {{myForm.$valid}}</tt><br>
+    <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br>
+    <tt>myForm.$error.minlength = {{!!myForm.$error.minlength}}</tt><br>
+    <tt>myForm.$error.maxlength = {{!!myForm.$error.maxlength}}</tt><br>
+  </div>
+
+</body>
+</html>

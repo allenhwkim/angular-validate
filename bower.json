@@ -1,0 +1,24 @@
+{
+  "name": "nui-form-for",
+  "version": "0.1.0",
+  "homepage": "https://github.com/allenhwkim/nui-form-for",
+  "authors": [
+    "Allen Kim <allenhwkim@gmail.com>"
+  ],
+  "description": "Angular Validation Injector",
+  "main": "build/nui-form-for.min.js",
+  "keywords": [
+    "angular",
+    "directive",
+    "validation",
+    "inject"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
