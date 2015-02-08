@@ -2,6 +2,7 @@ nui-form-for
 ===========
 
 AngularJS Validation Rule Injector from an Object
+ [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/testapp/simple.html)
 
 How It Works
 ------------
