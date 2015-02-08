@@ -8,9 +8,9 @@ How It Works
 ------------
 This module injects Angular validation rules from an object ONLY if not defined.  
 
-For example, there is validation rule given as `{min:1}`, 
-This input `<input name="foo" />`  
-will become `<input name="foo" ng-model="user.foo" ng-minlength="1" />`  
+For example, there is validation rule given as `{min:1}`,   
+This input  `<input name="foo" />`    
+will become `<input name="foo" ng-model="user.foo" ng-minlength="1" />`    
 
 Why `nui-form-for`?
 --------------------
@@ -44,8 +44,8 @@ Usage Example
       <input name="name" nui-rule="name" ng-model="foo" />
     </form>
 
-Requirements
--------------
+Requirements For This Module
+------------------------------
 
   0. Must be 100% compliant to AngularJS directives;
      * ngmessages, ngmessage
