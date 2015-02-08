@@ -1,6 +1,6 @@
 {
   "name": "nui-form-for",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Angular Validation Injector By Object",
   "main": "gulpfile.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "gulp-debug": "^2.0.0",
     "gulp-protractor": "0.0.12",
     "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.2",
     "gulp-shell": "^0.2.11",
     "gulp-strip-debug": "^1.0.2",
     "gulp-tap": "^0.1.3",
