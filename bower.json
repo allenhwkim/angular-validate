@@ -6,7 +6,7 @@
     "Allen Kim <allenhwkim@gmail.com>"
   ],
   "description": "Angular Validation Injector",
-  "main": "build/nui-form-for.min.js",
+  "main": "build/scripts/nui-form-for.min.js",
   "keywords": [
     "angular",
     "directive",
