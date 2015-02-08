@@ -1,4 +1,4 @@
-nui-for-for
+nui-form-for
 ===========
 
 AngularJS Validation Rule Injector from an Object
@@ -28,7 +28,7 @@ Install
 Usage Example
 --------------
 
-  For entire form  [DEMO]()
+  For entire form  [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/testapp/simple.html)
 
     <form name="myForm" nui-form-for="user" validation-rule="user.json">
       Name: <input type="text" name="name"  /><br />
@@ -37,7 +37,7 @@ Usage Example
       <input type="checkbox" name="agree" /> I agree<br/>
     </form>
 
-  For a single field [DEMO]()
+  For a single field [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/testapp/simple-inline.html)
 
     <form name="myForm">
       <input name="name" nui-rule="name" ng-model="foo" />
