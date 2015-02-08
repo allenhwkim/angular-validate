@@ -1,12 +1,12 @@
 nui-form-for
 ===========
 
-AngularJS Validation Rule Injector from an Object
+AngularJS Validation Rule Builder from an Object
  [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/testapp/simple.html)
 
 How It Works
 ------------
-This module injects Angular validation rules from an object ONLY if not defined.  
+This module adds Angular validation rules from an object ONLY if not defined.  
 
 For example, there is validation rule given as `{minlength:1}`,   
 This input  `<input name="foo" />`    
@@ -19,10 +19,10 @@ will become `<input name="foo" ng-minlength="20"  ng-model="user.foo"  />`
 Why `nui-form-for`?
 --------------------
 
-   * 100% AngularJS compliant
-   * clean html when you want
-   * validation by object
-   * sync/async validation injection
+   * It is 100% AngularJS compliant
+   * You can have cleaner html as you wish
+   * It allows form validation by an object
+   * You can also do async validation injection by $http
 
 Install
 --------
