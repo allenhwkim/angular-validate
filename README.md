@@ -1,7 +1,7 @@
 nui-form-for
 ===========
 
-AngularJS Validation Rule Builder from an Object
+Graceful AngularJS validation rule Injector from an object
  [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/testapp/simple.html)
  
  ![Imgur](http://i.imgur.com/tQS4sQk.png?2)
