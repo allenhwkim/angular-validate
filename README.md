@@ -4,7 +4,7 @@ nui-form-for
 AngularJS Validation Rule Builder from an Object
  [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/testapp/simple.html)
  
- ![Imgur](http://i.imgur.com/d2vU9Sw.png)
+ ![Imgur](http://i.imgur.com/tQS4sQk.png)
 
 How It Works
 ------------
