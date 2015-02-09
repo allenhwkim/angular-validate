@@ -3,7 +3,7 @@ Graceful AngularJS Form Validation Injector
 
  [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/demo/simple.html)
  
- ![Imgur](http://i.imgur.com/tQS4sQk.png?2)
+ ![Imgur](http://i.imgur.com/tcErJpP.png?1)
 
 How It Works
 ------------
@@ -56,6 +56,63 @@ Usage Example
     <form name="myForm">
       <input name="name" nui-rule="name" ng-model="foo" />
     </form>
+
+Directives / Attributes
+-----------------------
+
+  * `nui-form-for`
+
+    object variable that is related to the form.
+
+  * `validation-rule`
+
+    server-side validation rule object. Please refer to the following example
+    If ommitted, it's using `$scope.validationRule`, so please specify the object accordingly.
+
+        {
+          "name": {
+            "minlength": 2,
+            "maxlength": 10,
+            "message": "Invalid user name"
+          },
+          "nickName": {
+            "required": false,
+            "minlength": {
+              "value": 3,
+              "message": "nick name must have 3 letters"
+            },
+            "maxlength": {
+              "value": 10,
+              "message": "nick name must have  less than 10 letters"
+            },
+            "message": "nick name must be a valid one"
+          },
+          "email": {
+            "type": "email"
+          },
+          "dob": {
+            "type": "date"
+          },
+          "time": {
+            "type": "time"
+          },
+          "homepage": {
+            "type": "url"
+          },
+          "gender": {
+            "pattern": "male|female"
+          },
+          "creditCard": {
+            "pattern": "([0-9]{4}[ -]?){4}"
+          },
+          "agree": {}
+        }
+
+  * `nui-rule`
+    
+    the name of validation rule to apply to the form field. i.e. `rui-rule="email"`. 
+    The validation rules must be specified in `$scope.validationRule`.
+
 
 Requirements For This Module
 ------------------------------
