@@ -1,7 +1,7 @@
 Graceful AngularJS Form Validation Injector
 ============================================
 
- [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/testapp/simple.html)
+ [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/demo/simple.html)
  
  ![Imgur](http://i.imgur.com/tQS4sQk.png?2)
 
@@ -42,7 +42,7 @@ Install
 Usage Example
 --------------
 
-  For entire form  [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/testapp/simple.html)
+  For entire form  [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/demo/simple.html)
 
     <form name="myForm" nui-form-for="user" validation-rule="user.json">
       Name: <input type="text" name="name"  /><br />
@@ -51,7 +51,7 @@ Usage Example
       <input type="checkbox" name="agree" /> I agree<br/>
     </form>
 
-  For a single field [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/testapp/simple-inline.html)
+  For a single field [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/demo/simple-inline.html)
 
     <form name="myForm">
       <input name="name" nui-rule="name" ng-model="foo" />
