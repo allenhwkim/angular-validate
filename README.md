@@ -18,13 +18,17 @@ This input  | Will become
 `<input name="foo" ng-minlength="20" />` | `<input name="foo" ng-minlength="20"  ng-model="user.foo"  />`
 
 
-Why `nui-form-for`?
---------------------
+Why Another Validator
+----------------------
+
+There are many form validation modules in github, but There is none found which is 100% AngularJS syntax compliant validator. All of them are using its own syntax by ignoring AngularJS syntaxe, `ng-minlength`, `min`, `max`, etc.  
+
+Mosf of develoers do not want to learn another syntax for another validator because AngularJS provides good ones already. This module takes advantage of AngularJS and cleaner HTML with validation rule object.
 
    * It is 100% AngularJS compliant
    * You can have cleaner html as you wish
    * It allows form validation by an object
-   * You can user server-side validation
+   * You can use server-side validation
 
 Install
 --------
