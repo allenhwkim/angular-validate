@@ -17,7 +17,7 @@
       link: function(scope, element, attrs) {
         var el = element[0];
         var ruleName = attrs.ngRule || attrs.name;
-        var elRules = scope.validationRules[attrs.nuiRule];
+        var elRules = scope.validationRule[attrs.nuiRule];
         elRules.required = elRules.required || "true";
         for (var rule in elRules) {
           var attrKey = mapping[rule], attrVal = elRules[rule];

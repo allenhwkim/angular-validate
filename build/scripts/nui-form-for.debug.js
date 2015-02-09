@@ -20,7 +20,7 @@ var nuiFormFor=angular.module('nui-form-for',[]);
         $compile(element)($scope);
       };
       
-      this.getValidationRules = function() {
+      this.getValidationRule = function() {
         var deferred = $q.defer();
         if (typeof $scope.validationRule == "object") {
           deferred.resolve($scope.validationRule);
@@ -34,7 +34,7 @@ var nuiFormFor=angular.module('nui-form-for',[]);
         return deferred.promise;
       };
       
-      this.injectValidationRules = function(formRules) {
+      this.injectValidationRule = function(formRules) {
         var form = $element[0];
         var modelName = $attrs.nuiFormFor;
         for (var elName in formRules) {
@@ -101,8 +101,8 @@ var nuiFormFor=angular.module('nui-form-for',[]);
         }
         form.setAttribute('novalidate','');
         
-        ctrl.getValidationRules().then(function(formRules) {
-          ctrl.injectValidationRules(formRules);
+        ctrl.getValidationRule().then(function(formRules) {
+          ctrl.injectValidationRule(formRules);
           return formRules;
         }).then(function(formRules) {
           ctrl.injectErrorMessages(formRules);
@@ -132,7 +132,7 @@ var nuiFormFor=angular.module('nui-form-for',[]);
       link: function(scope, element, attrs) {
         var el = element[0];
         var ruleName = attrs.ngRule || attrs.name;
-        var elRules = scope.validationRules[attrs.nuiRule];
+        var elRules = scope.validationRule[attrs.nuiRule];
         elRules.required = elRules.required || "true";
         for (var rule in elRules) {
           var attrKey = mapping[rule], attrVal = elRules[rule];

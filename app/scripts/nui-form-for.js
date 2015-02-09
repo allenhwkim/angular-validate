@@ -18,7 +18,7 @@
         $compile(element)($scope);
       };
       
-      this.getValidationRules = function() {
+      this.getValidationRule = function() {
         var deferred = $q.defer();
         if (typeof $scope.validationRule == "object") {
           deferred.resolve($scope.validationRule);
@@ -32,7 +32,7 @@
         return deferred.promise;
       };
       
-      this.injectValidationRules = function(formRules) {
+      this.injectValidationRule = function(formRules) {
         var form = $element[0];
         var modelName = $attrs.nuiFormFor;
         for (var elName in formRules) {
@@ -99,8 +99,8 @@
         }
         form.setAttribute('novalidate','');
         
-        ctrl.getValidationRules().then(function(formRules) {
-          ctrl.injectValidationRules(formRules);
+        ctrl.getValidationRule().then(function(formRules) {
+          ctrl.injectValidationRule(formRules);
           return formRules;
         }).then(function(formRules) {
           ctrl.injectErrorMessages(formRules);
