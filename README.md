@@ -39,9 +39,8 @@ Install
   3. add dependency to your module  
      `var myapp = angular.module('myapp', ['nui-form-for']);`
 
-
- To use your own prefix, instead of `nui-*`, simply define nuiPrefix before you add `nui-form-for.js`.
- There is [example](https://rawgit.com/allenhwkim/nui-form-for/master/demo/with-prefix.html) for this.
+To use application prefix instead of `nui-*`, simply define nuiPrefix before you add `nui-form-for.js`.
+There is [example](https://rawgit.com/allenhwkim/nui-form-for/master/demo/with-prefix.html) for this.
 ```
    <script> var nuiPrefix = "ute"; </script>
    <script src="nui-form-for.js"></script>
