@@ -135,8 +135,8 @@ Initial Requirements For This Module
      i.e.,  `<input .... nui-rule="<<VALIDATIN-RULE-NAME>>">`
 
   3. Must NOT overwrite AngularJS tag validation rules, and HTML5 validation rules.   
-     For example, assuming there is rule {min:10, max:20}, and html has input tag attribute min="1"
-     then applying rule must be {min:1, and max:20} because min=1 is given from html already.
+     For example, assuming there is rule `{min:10, max:20}`, and html has input tag attribute `min=1`
+     then applying rule must be `{min:1, and max:20}` because `min=1` is given from html already.
 
 LICENSE
 --------
