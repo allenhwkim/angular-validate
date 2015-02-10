@@ -1,6 +1,7 @@
-var nuiFormFor=angular.module('nui-form-for',[]);
+var nuiPrefix = nuiPrefix || 'nui';
+var nuiFormFor=angular.module(nuiPrefix + '-form-for',[]);
 
-/* global nuiFormFor */
+/* global nuiFormFor, nuiPrefix */
 (function(){
   'use strict';
   var mapping = {
@@ -36,7 +37,7 @@ var nuiFormFor=angular.module('nui-form-for',[]);
       
       this.injectValidationRule = function(formRules) {
         var form = $element[0];
-        var modelName = $attrs.nuiFormFor;
+        var modelName = $attrs[nuiPrefix + "FormFor"];
         for (var elName in formRules) {
           var str = 'input[name=VAL], '+
             'select[name=VAL], '+
@@ -90,7 +91,7 @@ var nuiFormFor=angular.module('nui-form-for',[]);
     }
   ];
 
-  nuiFormFor.directive("nuiFormFor", function() {
+  nuiFormFor.directive(nuiPrefix + "FormFor", function() {
     return {
       controller: controller, 
       link: function(scope, element, attrs, ctrl) {
@@ -113,7 +114,7 @@ var nuiFormFor=angular.module('nui-form-for',[]);
 
 })();
 
-/* global nuiFormFor */
+/* global nuiPrefix, nuiFormFor */
 (function(){
   'use strict';
   var mapping = {
@@ -126,13 +127,13 @@ var nuiFormFor=angular.module('nui-form-for',[]);
     'type'      : 'type'
   };
 
-  nuiFormFor.directive("nuiRule", function($compile) {
+  nuiFormFor.directive(nuiPrefix + "Rule", function($compile) {
     return {
       require: 'ngModel',
       link: function(scope, element, attrs) {
         var el = element[0];
         var ruleName = attrs.ngRule || attrs.name;
-        var elRules = scope.validationRule[attrs.nuiRule];
+        var elRules = scope.validationRule[attrs[nuiPrefix+"Rule"]];
         elRules.required = elRules.required || "true";
         for (var rule in elRules) {
           var attrKey = mapping[rule], attrVal = elRules[rule];
@@ -145,7 +146,7 @@ var nuiFormFor=angular.module('nui-form-for',[]);
             } 
           }
         }
-        el.removeAttribute("nui-rule"); // to prevent loop
+        el.removeAttribute(nuiPrefix +  "-rule"); // IMPORTANT to prevent loop
         $compile(el)(scope);
       } // link
     }; // return
