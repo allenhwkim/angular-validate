@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="lib/angular.js"></script>
+  <script src="lib/angular-messages.js"></script>
+  <script src="../app/scripts/app.js"></script>
+  <script src="../app/scripts/nui-form-for.js"></script>
+  <script src="../app/scripts/nui-msg-for.js"></script>
+  <script>
+    var app = angular.module('myapp', ['nui-form-for', 'ngMessages']);
+  </script>
+  <style>
+    body {font-family: arial,sans-serif; font-size: 16px}
+    form[name='myForm'] b {display:inline-block; width: 7em}
+    form .ng-dirty.ng-invalid { background-color: red; }
+    form .ng-dirty.ng-valid { background-color:  lightgreen }
+    form .ng-dirty.ng-valid + i::after { content: ' ✓ '; background: green; color: white; border:1px solid grey; border-radius: 50%}
+    div[ng-messages], div[ng-if] {display: inline-block; color: red; font-size: 12px}
+  </style>
+</head>
+<body ng-app="myapp">
+
+  <h1>Simple HTML, Full AngularJS Validation</h1>
+
+  <div style="display:inline-block; vertical-align: top; width: 400px">
+    <form name="myForm" nui-form-for="user" validation-rule="user-rule.json">
+
+      <!-- Show error mesage using ng-if -->
+      <b></b> 
+      <div ng-if="myForm.name.$invalid && myForm.name.$touched"> 
+        {{::myForm.name.message.general}}
+      </div><br/>
+      <b>Name:</b> <input name="name"  /><i></i>
+      <br />
+
+      <!-- Show error mesage using nui-msg-for. It injects ng-if attribute -->
+      <b></b> 
+      <div nui-msg-for="myForm.email">Invalid Email</div><br/>
+      <b>E-mail: </b> <input name="email" /><i></i>
+      <br />
+
+      <!-- Show error mesage using ng-messages -->
+      <b></b> 
+      <div ng-messages="myForm.nickName.$error" ng-if="myForm.nickName.$touched">
+        <div ng-if="myForm.nickName.$invalid">{{::myForm.nickName.message.general}}</div>
+        <div ng-message="minlength">{{::myForm.nickName.message.minlength}}</div>
+        <div ng-message="maxlength">{{::myForm.nickName.message.maxlength}}</div>
+      </div><br/>
+      <b>Nick Name:</b> <input name="nickName" /><i></i>
+      <br />
+
+      <b></b>
+      <button ng-disabled="!(myForm.$dirty)">RESET</button>
+      <button ng-disabled="!(myForm.$valid && myForm.$dirty)">SAVE</button>
+    </form>
+    <br/>
+    There are three ways to show error messages.
+    <ol>
+      <li> Using ng-if
+      <li> Using ng-messages
+      <li> Using nui-msg-for (shortcut of ng-if)
+    </ol>
+    Validation Rule: <a href="user-rule.json">user-rule.json</a>
+  </div>
+  <div style="display: inline-block;vertical-align:top; overflow:auto">
+    <pre style="margin:0; font-size: 0.95em; background:#666; color: #eee">
+  &lt;form name="myForm" nui-form-for="user" validation-rule="user-rule.json">
+    &lt;!-- Show error mesage using ng-if -->
+    &lt;div ng-if="myForm.name.$invalid && myForm.name.$touched"> 
+      {{::myForm.name.message.general}}
+    &lt;/div>
+    &lt;b>Name:&lt;/b> &lt;input name="name"  />
+
+    &lt;!-- Show error mesage using nui-msg-for -->
+    &lt;div nui-msg-for="myForm.email">Invalid Email&lt;/div>
+    &lt;b>E-mail: &lt;/b> &lt;input name="email" />
+
+    &lt;!-- Show error mesage using ng-messages -->
+    &lt;div ng-messages="myForm.nickName.$error" ng-if="myForm.nickName.$touched">
+      &lt;div ng-if="myForm.nickName.$invalid">{{::myForm.nickName.message.general}}&lt;/div>
+      &lt;div ng-message="minlength">{{::myForm.nickName.message.minlength}}&lt;/div>
+      &lt;div ng-message="maxlength">{{::myForm.nickName.message.maxlength}}&lt;/div>
+    &lt;/div>
+    &lt;b>Nick Name:&lt;/b> &lt;input name="nickName" />
+
+    &lt;button ng-disabled="!(myForm.$dirty)">RESET&lt;/button>
+    &lt;button ng-disabled="!(myForm.$valid && myForm.$dirty)">SAVE&lt;/button>
+  &lt;/form>
+    </pre>
+  </div>
+  <hr/>
+
+  <button ng-click="debug = !debug">Toggle Debug</button>
+  <div id="debug" ng-show="debug">
+    <tt>myForm.name.$valid = {{myForm.name.$valid}}</tt><br>
+    <tt>myForm.name.$invalid = {{myForm.name.$invalid}}</tt><br>
+    <tt>myForm.name.$error = {{myForm.name.$error}}</tt><br>
+    <tt>myForm.name.message = {{myForm.name.message}}</tt><br>
+    <hr/>    
+    <tt>myForm.nickName.$valid = {{myForm.nickName.$valid}}</tt><br>
+    <tt>myForm.nickName.$error = {{myForm.nickName.$error}}</tt><br>
+    <tt>myForm.nickName.message = {{myForm.nickName.message}}</tt><br>
+    <hr/>
+    <tt>myForm.email.$valid = {{myForm.email.$valid}}</tt><br>
+    <tt>myForm.email.$error = {{myForm.email.$error}}</tt><br>
+    <hr/>
+    <tt>myForm.gender.$valid = {{myForm.gender.$valid}}</tt><br>
+    <tt>myForm.gender.$error = {{myForm.gender.$error}}</tt><br>
+    <hr/>
+    <tt>myForm.agree.$valid = {{myForm.agree.$valid}}</tt><br>
+    <tt>myForm.agree.$error = {{myForm.agree.$error}}</tt><br>
+    <hr/>
+    <tt>user = {{user}}</tt><br/>
+    <tt>myForm.$valid = {{myForm.$valid}}</tt><br>
+    <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br>
+    <tt>myForm.$error.minlength = {{!!myForm.$error.minlength}}</tt><br>
+    <tt>myForm.$error.maxlength = {{!!myForm.$error.maxlength}}</tt><br>
+  </div>
+
+</body>
+</html>

@@ -1,9 +1,9 @@
 Graceful AngularJS Form Validation Injector
 ============================================
 
- [DEMO](https://rawgit.com/allenhwkim/nui-form-for/master/demo/simple.html)
- 
- ![Imgur](http://i.imgur.com/tcErJpP.png?1)
+ [![Imgur](http://i.imgur.com/tcErJpP.png?1)](https://rawgit.com/allenhwkim/nui-form-for/master/demo/simple.html)
+
+ [![Imgur](http://i.imgur.com/ZKI2dEI.png?1)](https://rawgit.com/allenhwkim/nui-form-for/master/demo/message.html)
 
 How It Works
 ------------
@@ -120,6 +120,19 @@ Directives / Attributes
     the name of validation rule to apply to the form field. i.e. `rui-rule="email"`. 
     The validation rules must be specified in `$scope.validationRule`.
 
+  * `nui-msg-for`
+
+    short cut of `ng-if` to show error message. i.e. `nui-msg-for="myForm.name"`
+
+To Display Error Messages
+-------------------------
+
+There are three ways to show error messages.
+  1. Using `ng-if`
+  2. Using `ng-messages`
+  3. Using `nui-msg-for` (shortcut of ng-if)
+
+There is an [example](https://rawgit.com/allenhwkim/nui-form-for/master/demo/message.html) to see.
 
 Initial Requirements For This Module
 --------------------------------------
