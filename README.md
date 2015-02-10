@@ -129,10 +129,10 @@ Initial Requirements For This Module
      * form, input, ng-minlenght, ng-maxlenth, ... etc
 
   1. Must accept validation rule as a form attriute matching to an object  
-    i.e., `<form ng-form-for="<<MODEL-OBJECT>>" ng-rules="<<ALL-RULES-FOR-FORM>>">`  
+    i.e., `<form nui-form-for="<<MODEL-OBJECT>>" nui-rule="<<ALL-RULES-FOR-FORM>>">`  
 
   2. Must accept validation rule as a form field attribute  
-     i.e.,  `<input .... ng-rule="<<VALIDATIN-RULE-NAME>>">`
+     i.e.,  `<input .... nui-rule="<<VALIDATIN-RULE-NAME>>">`
 
   3. Must NOT overwrite AngularJS tag validation rules, and HTML5 validation rules.   
      For example, assuming there is rule {min:10, max:20}, and html has input tag attribute min="1"
