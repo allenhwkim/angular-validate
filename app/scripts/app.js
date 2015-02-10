@@ -1,1 +1,2 @@
-var nuiFormFor=angular.module('nui-form-for',[]);
+var nuiPrefix = nuiPrefix || 'nui';
+var nuiFormFor=angular.module(nuiPrefix + '-form-for',[]);

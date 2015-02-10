@@ -1,4 +1,4 @@
-/* global nuiFormFor */
+/* global nuiPrefix, nuiFormFor */
 (function(){
   'use strict';
   var mapping = {
@@ -11,13 +11,13 @@
     'type'      : 'type'
   };
 
-  nuiFormFor.directive("nuiRule", function($compile) {
+  nuiFormFor.directive(nuiPrefix + "Rule", function($compile) {
     return {
       require: 'ngModel',
       link: function(scope, element, attrs) {
         var el = element[0];
         var ruleName = attrs.ngRule || attrs.name;
-        var elRules = scope.validationRule[attrs.nuiRule];
+        var elRules = scope.validationRule[attrs[nuiPrefix+"Rule"]];
         elRules.required = elRules.required || "true";
         for (var rule in elRules) {
           var attrKey = mapping[rule], attrVal = elRules[rule];
@@ -30,7 +30,7 @@
             } 
           }
         }
-        el.removeAttribute("nui-rule"); // to prevent loop
+        el.removeAttribute(nuiPrefix +  "-rule"); // IMPORTANT to prevent loop
         $compile(el)(scope);
       } // link
     }; // return

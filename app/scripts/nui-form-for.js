@@ -1,4 +1,4 @@
-/* global nuiFormFor */
+/* global nuiFormFor, nuiPrefix */
 (function(){
   'use strict';
   var mapping = {
@@ -34,7 +34,7 @@
       
       this.injectValidationRule = function(formRules) {
         var form = $element[0];
-        var modelName = $attrs.nuiFormFor;
+        var modelName = $attrs[nuiPrefix + "FormFor"];
         for (var elName in formRules) {
           var str = 'input[name=VAL], '+
             'select[name=VAL], '+
@@ -88,7 +88,7 @@
     }
   ];
 
-  nuiFormFor.directive("nuiFormFor", function() {
+  nuiFormFor.directive(nuiPrefix + "FormFor", function() {
     return {
       controller: controller, 
       link: function(scope, element, attrs, ctrl) {
